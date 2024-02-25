@@ -1,0 +1,344 @@
+body {
+  font-family: Arial, sans-serif;
+}
+form {
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  max-width: 500px;
+}
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+input[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+input[type="submit"]:hover {
+  background-color: #45a049;
+}
+.additional-fields {
+  display: none;
+}
+
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+th {
+  background-color: #f2f2f2;
+}
+
+.invested-today {
+  background-color: rgb(253, 253, 40);
+}
+
+
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  table-layout: fixed; /* Add this line */
+}
+
+th {
+  background-color: #f2f2f2;
+  position: sticky; /* Add this line */
+  top: 0; /* Add this line */
+  z-index: 1; /* Add this line */
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  margin: 20px;
+}
+
+.containers {
+  display: grid;
+  grid-template-columns: 55% 20% 20%; /* Each container takes up the specified percentage of the row */
+  gap: 20px; /* Add some gap between containers */
+}
+
+#investedMoney {
+  grid-column: 1; /* This container is in the first column */
+}
+
+#investmentDetails {
+  grid-column: 2; /* This container is in the second column */
+}
+
+#investmentDays {
+  grid-column: 3; /* This container is in the third column */
+}
+
+
+#investedMoney, #investmentDetails, #investmentDays {
+  box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);
+  padding: 30px;
+  justify-content: center;
+  justify-content: center;
+  border-radius: 5px;
+  margin: 30px;
+  flex:1;
+}
+#investedMoney {
+  max-height: 200px; /* Set the maximum height for the table */
+  overflow-y: auto; /* Add a scrollbar if the content overflows */
+  padding: 0px;
+}
+
+#investedMoney::-webkit-scrollbar {
+  width: 5px; /* Set the width of the scrollbar */
+}
+
+#investedMoney::-webkit-scrollbar-thumb {
+  background-color: #888; /* Set the color of the scrollbar thumb */
+  border-radius: 5px; /* Set the border radius of the scrollbar thumb */
+}
+
+.local-storage-content::-webkit-scrollbar {
+  width: 5px; /* Set the width of the scrollbar */
+}
+
+.local-storage-content::-webkit-scrollbar-thumb {
+  background-color: #888; /* Set the color of the scrollbar thumb */
+  border-radius: 5px; /* Set the border radius of the scrollbar thumb */
+}
+
+.local-storage-content {
+  margin-top: 20px;
+  margin-left: 150px;
+  margin-right: 150px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  max-height: 600px; /* Set the maximum height for the table */
+  overflow-y: auto;
+  margin-top: 100px;
+  margin-bottom: 100px;
+
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: red;
+}
+
+#localStorageContent,
+#investedMoney,
+#investmentDetails,
+#investmentDays {
+  visibility: hidden;
+}
+
+
+.checkbox-wrapper * {
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
+.checkbox-wrapper input[type="checkbox"] {
+  display: none;
+}
+
+.checkbox-wrapper label {
+  --size: 30px;
+  --shadow: calc(var(--size) * .07) calc(var(--size) * .1);
+  position: relative;
+  display: block;
+  width: var(--size);
+  height: var(--size);
+  margin-left: 160px;
+  margin-top: -40px;
+  margin-bottom: 30px;
+  background-color: #4158D0;
+  background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+  border-radius: 50%;
+  box-shadow: 0 var(--shadow) #ffbeb8;
+  cursor: pointer;
+  transition: 0.2s ease transform, 0.2s ease background-color,
+      0.2s ease box-shadow;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.checkbox-wrapper label:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  width: calc(var(--size) * .7);
+  height: calc(var(--size) * .7);
+  margin: 0 auto;
+  background-color: #fff;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  box-shadow: inset 0 var(--shadow) #ffbeb8;
+  transition: 0.2s ease width, 0.2s ease height;
+}
+
+.checkbox-wrapper label:hover:before {
+  width: calc(var(--size) * .55);
+  height: calc(var(--size) * .55);
+  box-shadow: inset 0 var(--shadow) #ff9d96;
+}
+
+.checkbox-wrapper label:active {
+  transform: scale(0.9);
+}
+
+.checkbox-wrapper .tick_mark {
+  position: absolute;
+  top: -1px;
+  right: 0;
+  left: calc(var(--size) * -.05);
+  width: calc(var(--size) * .6);
+  height: calc(var(--size) * .6);
+  margin: 0 auto;
+  margin-left: calc(var(--size) * .14);
+  transform: rotateZ(-40deg);
+}
+
+.checkbox-wrapper .tick_mark:before,
+  .checkbox-wrapper .tick_mark:after {
+  content: "";
+  position: absolute;
+  background-color: #fff;
+  border-radius: 2px;
+  opacity: 0;
+  transition: 0.2s ease transform, 0.2s ease opacity;
+}
+
+.checkbox-wrapper .tick_mark:before {
+  left: 0;
+  bottom: 0;
+  width: calc(var(--size) * .1);
+  height: calc(var(--size) * .3);
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.23);
+  transform: translateY(calc(var(--size) * -.68));
+}
+
+.checkbox-wrapper .tick_mark:after {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: calc(var(--size) * .1);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.23);
+  transform: translateX(calc(var(--size) * .78));
+}
+
+.checkbox-wrapper input[type="checkbox"]:checked + label {
+  background-color: #4158D0;
+  background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+.checkbox-wrapper input[type="checkbox"]:checked + label:before {
+  width: 0;
+  height: 0;
+}
+
+.checkbox-wrapper input[type="checkbox"]:checked + label .tick_mark:before,
+  .checkbox-wrapper input[type="checkbox"]:checked + label .tick_mark:after {
+  transform: translate(0);
+  opacity: 1;
+}
+
+.wave-group {
+  position: relative;
+}
+
+.wave-group .input {
+  font-size: 16px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  width: 200px;
+  border: none;
+  border-bottom: 1px solid #515151;
+  background: transparent;
+}
+
+.wave-group .input:focus {
+  outline: none;
+}
+
+.wave-group .label {
+  color: #999;
+  font-size: 18px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 10px;
+  display: flex;
+}
+
+.wave-group .label-char {
+  transition: 0.2s ease all;
+  transition-delay: calc(var(--index) * .05s);
+}
+
+.wave-group .input:focus ~ label .label-char,
+.wave-group .input:valid ~ label .label-char {
+  transform: translateY(-20px);
+  font-size: 14px;
+  color: #5264AE;
+}
+
+.wave-group .bar {
+  position: relative;
+  display: block;
+  width: 200px;
+}
+
+.wave-group .bar:before,.wave-group .bar:after {
+  content: '';
+  height: 2px;
+  width: 0;
+  bottom: 1px;
+  position: absolute;
+  background: #5264AE;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+
+.wave-group .bar:before {
+  left: 50%;
+}
+
+.wave-group .bar:after {
+  right: 50%;
+}
+
+.wave-group .input:focus ~ .bar:before,
+.wave-group .input:focus ~ .bar:after {
+  width: 50%;
+}
+
+
+

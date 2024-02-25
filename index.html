@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Navi Fund</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <form id="stockForm" onsubmit="reloadPage()">
+
+    
+    
+    <div class="checkbox-wrapper">
+        <p>Did you invest today?</p>
+        <input id="investedToday" type="checkbox" name="investedToday" onchange="toggleAdditionalFields(this)">
+        <label for="investedToday">
+            <span class="tick_mark"></span>
+        </label>
+    </div>
+
+    <div class="additional-fields" style="display: none;">
+        <label for="amountInvested">How much did you invest?</label>
+        <input type="text" id="amountInvested" name="amountInvested">
+
+        <label for="midcap150Invested">On Midcap 150:</label>
+        <input type="text" id="midcap150Invested" name="midcap150Invested">
+        
+        <label for="next50Invested">On Next 50:</label>
+        <input type="text" id="next50Invested" name="next50Invested">
+        
+        <label for="nasdaq100Invested">On NASDAQ 100:</label>
+        <input type="text" id="nasdaq100Invested" name="nasdaq100Invested">
+        
+        <label for="usStockInvested">On US Stock:</label>
+        <input type="text" id="usStockInvested" name="usStockInvested">
+
+        <h1>Enter Current Values</h1>
+    </div>
+    
+    <label for="midcap150">Midcap 150:</label>
+    <input type="text" id="midcap150" name="midcap150">
+    
+    <label for="next50">Next 50:</label>
+    <input type="text" id="next50" name="next50">
+    
+    <label for="nasdaq100">NASDAQ 100:</label>
+    <input type="text" id="nasdaq100" name="nasdaq100">
+    
+    <label for="usStock">US Stock:</label>
+    <input type="text" id="usStock" name="usStock">
+
+    <label for="date">Select Date:</label>
+    <input type="date" id="date" name="date">
+    
+    <input type="submit" value="Submit">
+</form>
+
+<div id="localStorageContent" class="local-storage-content"></div>
+
+<div class="containers">
+    <div id="investedMoney" class="container">
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Invested Money</th>
+                    <th>Mid Cap 150</th>
+                    <th>Next 50</th>
+                    <th>NASDA 100</th>
+                    <th>US Stock</th>
+                </tr>
+            </thead>
+            <tbody id="investedMoneyList"></tbody>
+        </table>
+    </div>
+    
+
+    <div id="investmentDetails" class="container">
+        <p id="investedValue">Invested : 0</p>
+        <p id="currentValue">Current : 0</p>
+        <p id="returnValue">Returns : 0</p>
+    </div>
+
+    <div id="investmentDays" class="container">
+        <p>Invested Days: <span id="investedDaysCount">0</span></p>
+        <p>Profit Days: <span id="profitDaysCount">0</span></p>
+        <p>Loss Days: <span id="lossDaysCount">0</span></p>
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
